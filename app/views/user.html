@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+		<link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+</head>
+<body class='pure-g'>
+	<h3 class='pure-g-6-8'>Posts by {{ session['name'] }}</h3>
+	<p class='pure-g-1-8'><a class='pure-button pure-button-primary' href='/dashboard'>Dashboard</a></p>
+	<p class='pure-g-1-8'><a class='pure-button pure-button-primary' href='/logout'>Logout</a></p>
+	<p class='pure-g-1'>{{ count }}</p>
+	{% for quote in quotes %}
+	<h4 class='pure-g-2-5 error'>{{ quote['source'] }}</h4>
+	<p class='pure-g-3-5'>{{ quote['quote'] }}</p>
+	{% endfor %}
+</body>
+</html>

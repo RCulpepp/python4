@@ -1,0 +1,59 @@
+<html>
+	<head>
+	<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+		<link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+	</head>
+	<body class='pure-g'>
+		<h2 class='pure-u-7-8'>Welcome to Quoteable!</h2>
+		<div id="wrapper" class='pure-g'>
+			<form class='pure-form pure-form-stacked pure-u-1-4' action='/register' method='post'>
+			<h3>Register</h3>
+				{% with messages = get_flashed_messages(category_filter=['regisError']) %}
+					{% for message in messages %}
+						<p class='error'>{{ message }}</p>
+					{% endfor %}
+				{% endwith %}
+
+				<label for="name">Name: </label>
+				<input type="text" name='name' value="{{ session['name'] }}">
+
+
+				<label for="alias">Alias: </label>
+				<input type="text" name="alias" value="{{ session['alias'] }}">
+			
+
+				<label for="email">Email address</label>
+				<input type="text" name="email" value="{{ session['email'] }}">
+
+
+				<label for="password">Password: </label>
+				<input type="password" class="form-control" name="password">
+
+
+				<label for="confirm-pass">Confirm Password: </label>
+				<input type="password" name='confirm-pass'>
+
+
+				<label for="dob">DOB: </label>
+				<input type="date" name='dob'>
+
+				<input type="submit" class="pure-button pure-button-primary" value='Register'>
+			</form>
+			<form class='pure-form pure-form-stacked pure-u-1-4' action='/signin' method='post'>
+				<h3>Signin</h3>
+				{% with messages = get_flashed_messages(category_filter=['signError']) %}
+					{% for message in messages %}
+						<p class='error'>{{ message }}</p>
+					{% endfor %}
+				{% endwith %}				
+				<label for="email">Email address</label>
+				<input type="text" name="email">
+
+				<label for="password">Password: </label>
+				<input type="password" name="password">
+				<input type="submit" class="pure-button pure-button-primary" value='Sign in'>
+			</form>
+		</div>
+	</body>
+</html>
