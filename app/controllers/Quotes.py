@@ -125,8 +125,6 @@ class Quotes(Controller):
     def getUserInfo(self, id):
         count = self.models['Quote'].get_count(id)
         quotes = self.models['Quote'].get_quotes_by_user(id)
-        print count
-        print quotes
         return load_view('user.html', count=count, quotes=quotes)
 
 
